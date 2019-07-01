@@ -43,3 +43,5 @@ Uses HSQLDB that persists to a file.
 `GET http://localhost:8080/connections/123/schemas/PUBLIC/tables`
 
 `GET http://localhost:8080/connections/123/schemas/PUBLIC/tables/DATABASE_CONNECTION/columns`
+
+`GET http://localhost:8080/connections/123/schemas/PUBLIC/tables/DATABASE_CONNECTION/data`

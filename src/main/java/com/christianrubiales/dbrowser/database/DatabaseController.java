@@ -1,11 +1,12 @@
 package com.christianrubiales.dbrowser.database;
 
 import java.util.List;
+import java.util.Map;
 
 import com.christianrubiales.dbrowser.column.Column;
 import com.christianrubiales.dbrowser.column.ColumnService;
-import com.christianrubiales.dbrowser.database.DatabaseService;
-import com.christianrubiales.dbrowser.database.DatabaseServiceException;
+import com.christianrubiales.dbrowser.data.DataException;
+import com.christianrubiales.dbrowser.data.DataService;
 import com.christianrubiales.dbrowser.databaseConnection.DatabaseConnection;
 import com.christianrubiales.dbrowser.databaseConnection.DatabaseConnectionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +30,16 @@ public class DatabaseController {
     @Autowired
     private ColumnService columnService;
 
+    @Autowired
+    private DataService dataService;
+
     public DatabaseController(DatabaseConnectionService connectionService,
-                              DatabaseService databaseService) {
+                              DatabaseService databaseService, ColumnService columnService,
+                              DataService dataService) {
         this.connectionService = connectionService;
         this.databaseService = databaseService;
+        this.columnService = columnService;
+        this.dataService = dataService;
     }
 
     @GetMapping("/connections")
@@ -78,5 +85,12 @@ public class DatabaseController {
     public List<Column> getColumns(@PathVariable String connectionId, @PathVariable String schema,
                                    @PathVariable String table) throws DatabaseServiceException {
         return columnService.getColumns(schema, table);
+    }
+
+    @GetMapping("/connections/{connectionId}/schemas/{schema}/tables/{table}/data")
+    public List<List<Map<String, String>>> getData(@PathVariable String connectionId,
+                                                   @PathVariable String table)
+            throws DataException {
+        return dataService.getData(connectionService.getConnection(connectionId), table);
     }
 }
