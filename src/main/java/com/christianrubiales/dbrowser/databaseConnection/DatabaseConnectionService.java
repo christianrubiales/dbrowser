@@ -9,29 +9,29 @@ import org.springframework.stereotype.Service;
 @Service
 public class DatabaseConnectionService {
 
-	@Autowired
-	private DatabaseConnectionRepository repository;
+    @Autowired
+    private DatabaseConnectionRepository repository;
 
-	public DatabaseConnection getConnection(String id) {
-		return repository.findOne(id);
-	}
+    public DatabaseConnection getConnection(String id) {
+        return repository.findOne(id);
+    }
 
-	public List<DatabaseConnection> getConnections() {
-		List<DatabaseConnection> connections = new ArrayList<>();
-		repository.findAll().forEach(connections::add);
-		
-		return connections;
-	}
+    public List<DatabaseConnection> getConnections() {
+        List<DatabaseConnection> connections = new ArrayList<>();
+        repository.findAll().forEach(connections::add);
 
-	public void addConnection(DatabaseConnection connection) {
-		repository.save(connection);
-	}
+        return connections;
+    }
 
-	public void updateConnection(DatabaseConnection connection) {
-		repository.save(connection);
-	}
+    public void addConnection(DatabaseConnection connection) {
+        repository.save(connection);
+    }
 
-	public void deleteConnectionById(String id) {
-		repository.delete(id);
-	}
+    public void updateConnection(DatabaseConnection connection) {
+        repository.save(connection);
+    }
+
+    public void deleteConnectionById(String id) {
+        repository.delete(id);
+    }
 }

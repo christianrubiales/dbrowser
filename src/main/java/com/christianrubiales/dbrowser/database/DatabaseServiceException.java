@@ -1,4 +1,4 @@
-package com.christianrubiales.dbrowser.databaseConnection;
+package com.christianrubiales.dbrowser.database;
 
 public class DatabaseServiceException extends Exception {
 

@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class DbrowserApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(DbrowserApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(DbrowserApplication.class, args);
+    }
 
 }
