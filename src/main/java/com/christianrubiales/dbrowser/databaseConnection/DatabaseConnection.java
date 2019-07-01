@@ -1,10 +1,10 @@
-package com.christianrubiales.dbrowser.connection;
+package com.christianrubiales.dbrowser.databaseConnection;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Connection {
+public class DatabaseConnection {
 
 	@Id
 	private String id;
@@ -13,10 +13,10 @@ public class Connection {
 	private String username;
 	private String password;
 	
-	public Connection() {
+	public DatabaseConnection() {
 	}
 
-	public Connection(String id, String name, String databaseName, String username, String password) {
+	public DatabaseConnection(String id, String name, String databaseName, String username, String password) {
 		this.id = id;
 		this.name = name;
 		this.databaseName = databaseName;
