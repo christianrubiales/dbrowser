@@ -5,9 +5,18 @@ Database Browser as a RESTful Web Service.
 Uses HSQLDB that persists to a file.
 
 
-## Running
+## Running the Web Service
 
 `mvn spring-boot:run`
+
+
+## Running the Interactive Documentation
+
+1. `docker pull swaggerapi/swagger-editor`
+2. `docker run -d -p 80:8080 swaggerapi/swagger-editor`
+3. Go to [http://localhost](http://localhost)
+4. Import the file `dbrowser.yml` using `File > Import file`
+5. Try some requests using the button named `Try it out`
 
 
 ## Example Requests
