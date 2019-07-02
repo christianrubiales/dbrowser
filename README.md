@@ -1,12 +1,14 @@
 # dbrowser
 
-Database Browser as a RESTful Web Service
+Database Browser as a RESTful Web Service.
 
 Uses HSQLDB that persists to a file.
 
+
 ## Running
 
-`mvn clean spring-boot:run`
+`mvn spring-boot:run`
+
 
 ## Example Requests
 
@@ -45,3 +47,7 @@ Uses HSQLDB that persists to a file.
 `GET http://localhost:8080/connections/123/schemas/PUBLIC/tables/DATABASE_CONNECTION/columns`
 
 `GET http://localhost:8080/connections/123/schemas/PUBLIC/tables/DATABASE_CONNECTION/data`
+
+`GET http://localhost:8080/connections/123/schemas/PUBLIC/tables/DATABASE_CONNECTION/statistics`
+
+`GET http://localhost:8080/connections/123/schemas/PUBLIC/tables/DATABASE_CONNECTION/column/ID/statistics`

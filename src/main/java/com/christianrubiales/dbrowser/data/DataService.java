@@ -9,4 +9,10 @@ public interface DataService {
 
     List<List<Map<String, String>>> getData(DatabaseConnection connection, String table)
             throws DataException;
+
+    ColumnStatistics getColumnStatistics(DatabaseConnection connection, String table,
+                                                  String column) throws DataException;
+
+    TableStatistics getTableStatistics(DatabaseConnection connection, String table)
+            throws DataException;
 }

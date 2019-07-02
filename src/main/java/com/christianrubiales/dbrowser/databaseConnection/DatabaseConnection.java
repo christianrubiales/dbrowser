@@ -10,7 +10,7 @@ import lombok.Data;
 public class DatabaseConnection {
 
     @Id
-    private String id;
+    private Long id;
     private String name;
     private String databaseName;
     private String username;

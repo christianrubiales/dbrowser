@@ -12,7 +12,7 @@ public class DatabaseConnectionService {
     @Autowired
     private DatabaseConnectionRepository repository;
 
-    public DatabaseConnection getConnection(String id) {
+    public DatabaseConnection getConnection(Long id) {
         return repository.findOne(id);
     }
 
@@ -31,7 +31,7 @@ public class DatabaseConnectionService {
         repository.save(connection);
     }
 
-    public void deleteConnectionById(String id) {
+    public void deleteConnectionById(Long id) {
         repository.delete(id);
     }
 }
