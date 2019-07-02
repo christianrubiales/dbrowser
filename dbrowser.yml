@@ -25,20 +25,6 @@ paths:
       responses:
         200:
           description: successful operation
-    put:
-      tags:
-      - connection
-      summary: Update existing DB connection information
-      requestBody:
-        description: DB connection information that needs to be added
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Connection'
-        required: true
-      responses:
-        200:
-          description: successful operation
     get:
       tags:
       - connection
@@ -57,7 +43,7 @@ paths:
     get:
       tags:
       - connection
-      summary: Get DB Connection by id
+      summary: Get DB Connection Information by id
       description: Returns a DB Connection object
       parameters:
       - name: connectionId
@@ -75,6 +61,31 @@ paths:
             application/json:
               schema:
                 type: object
+
+    put:
+      tags:
+      - connection
+      summary: Update existing DB connection information
+      parameters:
+      - name: connectionId
+        in: path
+        description: ID of Connection to update
+        required: true
+        schema:
+          type: integer
+          format: int64
+          example: 123
+      requestBody:
+        description: DB connection information that needs to be added
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Connection'
+        required: true
+      responses:
+        200:
+          description: successful operation
+
     delete:
       tags:
       - connection
@@ -268,8 +279,8 @@ paths:
     get:
       tags:
       - connection
-      summary: Get all statistics of a table
-      description: Returns all statistics of a table
+      summary: Get all statistics of a column
+      description: Returns all statistics of a column
       parameters:
       - name: connectionId
         in: path
@@ -341,22 +352,28 @@ components:
         min:
           type: number
           format: double
+          description: Minimum of the column values in the table
         max:
           type: number
           format: double
+          description: Maximum of the column values in the table
         average:
           type: number
           format: double
+          description: Average of the column values in the table
         median:
           type: number
           format: double
+          description: Median of the column values in the table
 
     TableStatistics:
       type: object
       properties:
         rows:
           type: integer
+          description: Number of rows in the table
           format: int64
         columns:
           type: integer
+          description: Number of columns in the table
           format: int64
